@@ -34,10 +34,18 @@ namespace Ch10_P11_SimpleLambdaExpressions
             //    return (i % 2) == 0;
             //});
 
-            // now use C# lambda expression
-            List<int> evenNumbers = list.FindAll(i => (i % 2) == 0);
+            //// now use C# lambda expression
+            //List<int> evenNumbers = list.FindAll((i) => ((i % 2) == 0));
 
-            Console.WriteLine("Here are your even numbers:");
+            // Now process each argument within a group of code statements.
+            List<int> evenNumbers = list.FindAll((i) =>
+            {
+                Console.WriteLine("value of i is currently: {0}", i);
+                bool isEven = ((i % 2) == 0);
+                return isEven;
+            });
+
+            Console.WriteLine("\n Here are your even numbers:");
             foreach (int evenNumber in evenNumbers)
             {
                 Console.Write("{0}\t", evenNumber);
