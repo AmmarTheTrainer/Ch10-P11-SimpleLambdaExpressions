@@ -14,8 +14,31 @@ namespace Ch10_P11_SimpleLambdaExpressions
 
             //numbersList.fin
 
-            TraditionalDelegateSyntax();
+            //TraditionalDelegateSyntax();
+
+            WorkingWithLambdas();
+
             Console.ReadLine();
+        }
+
+        private static void WorkingWithLambdas()
+        {
+            // Make a list of integers.
+            List<int> list = new List<int>();
+            list.AddRange(new int[] { 20, 1, 4, 8, 9, 44 });
+
+            //list.Find();
+            //list.
+
+            Predicate<int> predicate = CheckNumber;
+
+            List<int> RequiredNumbers = list.FindAll( (i) => (i % 10) == 0 );
+
+        }
+
+        private static bool CheckNumber(int a)
+        {
+            return (a % 2) == 0;
         }
 
         private static void TraditionalDelegateSyntax()
@@ -23,6 +46,8 @@ namespace Ch10_P11_SimpleLambdaExpressions
             // Make a list of integers.
             List<int> list = new List<int>();
             list.AddRange(new int[] { 20, 1, 4, 8, 9, 44 });
+
+           // list.fi
 
             //// Call FindAll() using traditional delegate syntax.
             //Predicate<int> callback = IsEvenNumber;
